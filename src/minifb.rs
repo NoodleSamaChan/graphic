@@ -35,7 +35,7 @@ impl Graphic for Minifb {
         self.window.is_key_down(key.to_minifb())
     }
 
-    fn update_with_buffer(&mut self, windows: window_rs::WindowBuffer) {
+    fn update_with_buffer(&mut self, windows: &window_rs::WindowBuffer) {
         self.window.update_with_buffer(&windows.buffer(), windows.width(), windows.height()).unwrap()
     }
 

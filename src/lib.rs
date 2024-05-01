@@ -8,7 +8,7 @@ pub trait Graphic {
 
     fn is_key_down(&self, key: Key) -> bool;
 
-    fn update_with_buffer(&mut self, windows: WindowBuffer);
+    fn update_with_buffer(&mut self, windows: &WindowBuffer);
 
     fn is_key_pressed(&self, key: Key) -> bool;
 
