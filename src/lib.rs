@@ -1,14 +1,29 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use std::fmt::Error;
+use window_rs::WindowBuffer;
+
+pub trait Graphic {
+    fn new(name: &str, width: usize, height: usize) -> Self;
+
+    fn is_open(&self) -> bool;
+
+    fn is_key_down(&self, key: Key) -> bool;
+
+    fn update_with_buffer(&mut self, windows: WindowBuffer);
+
+    fn is_key_pressed(&self, key: Key) -> bool;
+
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub enum Key {
+    Up,
+    Down,
+    Left,
+    Right,
+    Escape,
+    Quit,
+    Space,
+    
 }
+
+#[cfg(feature = "minifb")]
+pub mod minifb;
