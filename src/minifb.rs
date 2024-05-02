@@ -54,6 +54,10 @@ impl crate::Key {
             crate::Key::Escape => minifb::Key::Escape,
             crate::Key::Quit => minifb::Key::Q,
             crate::Key::Space => minifb::Key::Space,
+            crate::Key::UpPlayer1 => minifb::Key::E,
+            crate::Key::DownPlayer1 => minifb::Key::D,
+            crate::Key::UpPlayer2 => minifb::Key::O,
+            crate::Key::DownPlayer2 => minifb::Key::K,
         }
     }
 }

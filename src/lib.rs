@@ -22,7 +22,10 @@ pub enum Key {
     Escape,
     Quit,
     Space,
-    
+    UpPlayer1,
+    DownPlayer1,
+    UpPlayer2,
+    DownPlayer2,
 }
 
 #[cfg(feature = "minifb")]
