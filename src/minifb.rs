@@ -58,6 +58,7 @@ impl crate::Key {
             crate::Key::DownPlayer1 => minifb::Key::D,
             crate::Key::UpPlayer2 => minifb::Key::O,
             crate::Key::DownPlayer2 => minifb::Key::K,
+            crate::Key::Launch => minifb::Key::W,
         }
     }
 }
