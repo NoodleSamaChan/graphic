@@ -1,4 +1,3 @@
-use std::fmt::Error;
 use window_rs::WindowBuffer;
 
 pub trait Graphic {
@@ -11,6 +10,8 @@ pub trait Graphic {
     fn update_with_buffer(&mut self, windows: &WindowBuffer);
 
     fn is_key_pressed(&self, key: Key) -> bool;
+
+    fn get_keys_released(&self) -> Vec<Option<crate::Key>>;
 
 }
 

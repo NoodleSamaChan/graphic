@@ -1,4 +1,4 @@
-use minifb::{Window, WindowOptions, KeyRepeat};
+use minifb::{Key, KeyRepeat, Window, WindowOptions};
 
 use crate::Graphic;
 
@@ -42,6 +42,13 @@ impl Graphic for Minifb {
     fn is_key_pressed(&self, key: crate::Key) -> bool {
         self.window.is_key_pressed(key.to_minifb(), KeyRepeat::Yes)
     }
+
+    fn get_keys_released(&self)  -> Vec<Option<crate::Key>> {
+        self.window.get_keys_released()
+            .into_iter()
+            .map(|key| to_graphic(key))
+            .collect()
+    }
 }
 
 impl crate::Key {
@@ -60,5 +67,23 @@ impl crate::Key {
             crate::Key::DownPlayer2 => minifb::Key::K,
             crate::Key::Launch => minifb::Key::W,
         }
+    }
+}
+
+fn to_graphic(key: minifb::Key) -> Option<crate::Key> {
+    match key {
+        minifb::Key::Up => Some(crate::Key::Up),
+        minifb::Key::Down => Some(crate::Key::Down),
+        minifb::Key::Left => Some(crate::Key::Left),
+        minifb::Key::Right => Some(crate::Key::Right),
+        minifb::Key::Escape => Some(crate::Key::Escape),
+        minifb::Key::Q => Some(crate::Key::Quit),
+        minifb::Key::Space => Some(crate::Key::Space),
+        minifb::Key::E => Some(crate::Key::UpPlayer1),
+        minifb::Key::D => Some(crate::Key::DownPlayer1),
+        minifb::Key::O => Some(crate::Key::UpPlayer2),
+        minifb::Key::K => Some(crate::Key::DownPlayer2),
+        minifb::Key::W => Some(crate::Key::Launch),
+        _ => None,
     }
 }
