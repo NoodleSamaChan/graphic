@@ -43,10 +43,10 @@ impl Graphic for Minifb {
         self.window.is_key_pressed(key.to_minifb(), KeyRepeat::Yes)
     }
 
-    fn get_keys_released(&self)  -> Vec<Option<crate::Key>> {
+    fn get_keys_released(&self)  -> Vec<crate::Key> {
         self.window.get_keys_released()
             .into_iter()
-            .map(|key| to_graphic(key))
+            .flat_map(|key| to_graphic(key))
             .collect()
     }
 }

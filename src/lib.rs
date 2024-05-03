@@ -11,7 +11,7 @@ pub trait Graphic {
 
     fn is_key_pressed(&self, key: Key) -> bool;
 
-    fn get_keys_released(&self) -> Vec<Option<crate::Key>>;
+    fn get_keys_released(&self) -> Vec<crate::Key>;
 
 }
 
