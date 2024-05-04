@@ -49,6 +49,19 @@ impl Graphic for Minifb {
             .flat_map(|key| to_graphic(key))
             .collect()
     }
+
+    fn get_mouse_pos(&self, mouse: crate::Mouse) -> Option<(f32, f32)> {
+        self.window.get_mouse_pos(mouse.mouse_to_minifn().unwrap())
+    }
+}
+
+impl crate::Mouse {
+    fn mouse_to_minifn (&self) -> Option<minifb::MouseMode> {
+        match self {
+            crate::Mouse::Discard => Some(minifb::MouseMode::Discard),
+            _ => None,
+        }
+    }
 }
 
 impl crate::Key {

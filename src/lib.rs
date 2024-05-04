@@ -13,6 +13,14 @@ pub trait Graphic {
 
     fn get_keys_released(&self) -> Vec<crate::Key>;
 
+    fn get_mouse_pos(&self, mouse: Mouse) -> Option<(f32, f32)>;
+
+}
+
+pub enum Mouse {
+    Left,
+    Right,
+    Discard,
 }
 
 pub enum Key {
