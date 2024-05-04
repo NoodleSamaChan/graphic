@@ -15,6 +15,8 @@ pub trait Graphic {
 
     fn get_mouse_pos(&self, mouse: Mouse) -> Option<(f32, f32)>;
 
+    fn get_mouse_down(&self, mouse: Mouse) -> bool;
+
 }
 
 pub enum Mouse {

@@ -51,14 +51,27 @@ impl Graphic for Minifb {
     }
 
     fn get_mouse_pos(&self, mouse: crate::Mouse) -> Option<(f32, f32)> {
-        self.window.get_mouse_pos(mouse.mouse_to_minifn().unwrap())
+        self.window.get_mouse_pos(mouse.mouse_mode_to_minifn().unwrap())
+    }
+
+    fn get_mouse_down(&self, mouse: crate::Mouse) -> bool {
+        self.window.get_mouse_down(mouse.mouse_button_to_minifn().unwrap())
+        
     }
 }
 
 impl crate::Mouse {
-    fn mouse_to_minifn (&self) -> Option<minifb::MouseMode> {
+    fn mouse_mode_to_minifn (&self) -> Option<minifb::MouseMode> {
         match self {
             crate::Mouse::Discard => Some(minifb::MouseMode::Discard),
+            _ => None,
+        }
+    }
+
+    fn mouse_button_to_minifn (&self) -> Option<minifb::MouseButton> {
+        match self {
+            crate::Mouse::Left => Some(minifb::MouseButton::Left),
+            crate::Mouse::Right => Some(minifb::MouseButton::Right),
             _ => None,
         }
     }
