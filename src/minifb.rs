@@ -64,8 +64,13 @@ impl crate::Key {
             crate::Key::UpPlayer1 => minifb::Key::E,
             crate::Key::DownPlayer1 => minifb::Key::D,
             crate::Key::UpPlayer2 => minifb::Key::O,
-            crate::Key::DownPlayer2 => minifb::Key::K,
+            crate::Key::DownPlayer2 => minifb::Key::L,
+            crate::Key::LeftPlayer2 => minifb::Key::K,
+            crate::Key::RightPlayer2 => minifb::Key::M,
             crate::Key::Launch => minifb::Key::W,
+            crate::Key::Forward => minifb::Key::F,
+            crate::Key::Backward => minifb::Key::R,
+            crate::Key::Save => minifb::Key::S,
         }
     }
 }
@@ -82,8 +87,13 @@ fn to_graphic(key: minifb::Key) -> Option<crate::Key> {
         minifb::Key::E => Some(crate::Key::UpPlayer1),
         minifb::Key::D => Some(crate::Key::DownPlayer1),
         minifb::Key::O => Some(crate::Key::UpPlayer2),
-        minifb::Key::K => Some(crate::Key::DownPlayer2),
+        minifb::Key::L => Some(crate::Key::DownPlayer2),
+        minifb::Key::K => Some(crate::Key::LeftPlayer2),
+        minifb::Key::M => Some(crate::Key::RightPlayer2),
         minifb::Key::W => Some(crate::Key::Launch),
+        minifb::Key::F => Some(crate::Key::Forward),
+        minifb::Key::R => Some(crate::Key::Backward),
+        minifb::Key::S => Some(crate::Key::Save),
         _ => None,
     }
 }

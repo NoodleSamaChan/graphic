@@ -27,7 +27,12 @@ pub enum Key {
     DownPlayer1,
     UpPlayer2,
     DownPlayer2,
+    LeftPlayer2,
+    RightPlayer2,
     Launch,
+    Forward,
+    Backward,
+    Save,
 }
 
 #[cfg(feature = "minifb")]
